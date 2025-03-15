@@ -1,0 +1,52 @@
+run:
+  timeout: 5m
+  tests: false
+  go: "1.23"
+
+linters:
+  disable-all: true
+  enable:
+    - asciicheck
+    - bodyclose
+    - copyloopvar
+    - cyclop
+    - dupl
+    - dupword
+    - errcheck
+    - errorlint
+    - forcetypeassert
+    - funlen
+    - gocritic
+    - gofmt
+    - goimports
+    - gosec
+    - gosimple
+    - gosmopolitan
+    - govet
+    - ineffassign
+    - loggercheck
+    - makezero
+    - mirror
+    - noctx
+    - prealloc
+    - predeclared
+    - staticcheck
+    - stylecheck
+    - thelper
+    - unused
+    - wastedassign
+    - wrapcheck
+    - wsl
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  new: false
+
+linters-settings:
+  govet:
+    enable-all: true
+  wrapcheck:
+    ignoreSigRegexps:
+      - \(github\.com\/labstack\/echo\/v4\.Context\).*
