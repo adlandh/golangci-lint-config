@@ -1,10 +1,9 @@
+version: "2"
 run:
-  timeout: 5m
-  tests: false
   go: "1.23"
-
+  tests: false
 linters:
-  disable-all: true
+  default: none
   enable:
     - asciicheck
     - bodyclose
@@ -17,10 +16,7 @@ linters:
     - forcetypeassert
     - funlen
     - gocritic
-    - gofmt
-    - goimports
     - gosec
-    - gosimple
     - gosmopolitan
     - govet
     - ineffassign
@@ -31,22 +27,34 @@ linters:
     - prealloc
     - predeclared
     - staticcheck
-    - stylecheck
     - thelper
     - unused
     - wastedassign
     - wrapcheck
     - wsl
-
+  settings:
+    govet:
+      enable-all: true
+    wrapcheck:
+      ignore-sig-regexps:
+        - \(github\.com\/labstack\/echo\/v4\.Context\).*
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
 issues:
-  exclude-use-default: false
   max-issues-per-linter: 0
   max-same-issues: 0
   new: false
-
-linters-settings:
-  govet:
-    enable-all: true
-  wrapcheck:
-    ignoreSigRegexps:
-      - \(github\.com\/labstack\/echo\/v4\.Context\).*
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
