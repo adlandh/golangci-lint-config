@@ -1,6 +1,6 @@
 version: "2"
 run:
-  go: "1.23"
+  go: "1.25"
   tests: false
 linters:
   default: none
@@ -33,6 +33,9 @@ linters:
     - wrapcheck
     - wsl_v5
   settings:
+    gosec:
+      excludes:
+        - G117
     govet:
       enable-all: true
     wrapcheck:
