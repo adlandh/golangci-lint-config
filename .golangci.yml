@@ -27,6 +27,7 @@ linters:
     - prealloc
     - predeclared
     - staticcheck
+    - testifylint
     - thelper
     - unused
     - wastedassign
