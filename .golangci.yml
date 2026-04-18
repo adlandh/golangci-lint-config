@@ -42,6 +42,7 @@ linters:
     wrapcheck:
       ignore-sig-regexps:
         - \(github\.com\/labstack\/echo\/v4\.Context\).*
+        - \(github\.com\/labstack\/echo\/v5\.Context\).*
   exclusions:
     generated: lax
     paths:
